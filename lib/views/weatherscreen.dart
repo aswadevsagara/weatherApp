@@ -34,32 +34,35 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Weather App'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: _controller,
-              decoration:const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Enter city',
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Weather App'),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextField(
+                controller: _controller,
+                decoration:const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter city',
+                ),
               ),
-            ),
-            SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: _fetchWeather,
-              child: Text('Get Weather'),
-            ),
-            SizedBox(height: 16),
-            Text(
-              _weather,
-              style: TextStyle(fontSize: 18),
-            ),
-          ],
+              SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: _fetchWeather,
+                child: Text('Get Weather'),
+              ),
+              SizedBox(height: 16),
+              Text(
+                _weather,
+                style: TextStyle(fontSize: 18),
+              ),
+            ],
+          ),
         ),
       ),
     );
